@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Tô Com Fome</string>
+    <string name="action_settings">Configurações</string>
+    <string name="lanchonete">Lanchonete</string>
+    <string name="ajuda">Ajuda</string>
+    <string name="relat_rio">Relatório</string>
+    <string name="vazia"> </string>
+    <string name="cancelar">Cancelar</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="nome">Nome</string>
+</resources>

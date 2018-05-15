@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/inpResponsavel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/inpLocal"
+        android:orientation="horizontal"
+        tools:ignore="DuplicateIds,NotSibling">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtResponsavel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Responsável"
+            android:inputType="text" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/inpNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nome"
+            android:inputType="text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/inpLocal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="73dp"
+        android:orientation="horizontal"
+        android:layout_alignParentLeft="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txtLocal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Local"
+            android:inputType="text" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/bntCadLancho"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="197dp"
+        android:layout_marginStart="62dp"
+        android:text="@string/cadastrar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="62dp" />
+
+    <Button
+        android:id="@+id/bntCancelar"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/bntCadLancho"
+        android:layout_marginEnd="75dp"
+        android:text="@string/cancelar"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="75dp" />
+
+</RelativeLayout>
