@@ -1,4 +1,4 @@
-package com.joincode.uepb.myapplication;
+package com.joincode.uepb.myapplication.view.controller;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.widget.Toolbar;
 import android.app.Activity;
 
+import com.joincode.uepb.myapplication.R;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -17,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.);
+        setContentView(R.layout.activity_layout_main);
        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
    //    setSupportActionBar(toolbar);
 

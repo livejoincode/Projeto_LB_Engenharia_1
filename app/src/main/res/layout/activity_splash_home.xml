@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorOrange"
     android:visibility="visible"
-    android:theme="@style/AppTheme.NoActionBar"
-    android:label="">
+    android:theme="@style/AppTheme.NoActionBar">
 
     <ImageView
         android:id="@+id/imvlogo"
@@ -17,8 +15,5 @@
         android:contentDescription="@android:string/ok"
         android:background="@color/colorOrange"
         app:srcCompat="@mipmap/desenho" />
-
-
-
 
 </RelativeLayout>
