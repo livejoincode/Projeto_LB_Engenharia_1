@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.controller.LanchoneteController"
+            android:name=".controller.LanchoneteController"
             android:label="Tô com Fome"
             android:theme="@style/Padrao">
             <intent-filter>
