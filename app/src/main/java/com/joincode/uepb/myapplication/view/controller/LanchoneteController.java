@@ -28,20 +28,26 @@ public class LanchoneteController  extends Activity implements OnClickListener {
     private LanchoneteModel lanchoneteNegocio;
    //private DatabaseCreate dbCreate;
     private Lanchonete lanchonete;
+    private TextView txv;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_lanchonete);
-
-
+/*
         DataBaseCreate db = Room.databaseBuilder(getApplicationContext(),
                 DataBaseCreate.class, "franciscoDB").build();
 
-        Lanchonete LanchoneteTable = new Lanchonete();
+        Lanchonete lanchoneteTable = new Lanchonete();
 
-        db.lanchoneteDao().insert(LanchoneteTable);
+        lanchoneteTable.setId(1);
+        lanchoneteTable.setNome("tô com fome UEPB");
+        lanchoneteTable.setLocalidade("UEPB");
+        lanchoneteTable.setHoraAtend("9h");
 
+        db.lanchoneteDao().insert(lanchoneteTable);
 
+        System.out.println(db.lanchoneteDao().getAll().toString());
+        /*
 
         lanchoneteNegocio = new LanchoneteModel(this.getApplication());
         //dbCreate = new DatabaseCreate(this);
@@ -56,8 +62,10 @@ public class LanchoneteController  extends Activity implements OnClickListener {
 
 //        confirmar.setOnClickListener(this);
 //        cancelar.setOnClickListener(this);
-
+*/
     }
+
+
 
     @Override
     public void onClick(View view) {
