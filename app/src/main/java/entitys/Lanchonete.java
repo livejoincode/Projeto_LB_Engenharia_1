@@ -24,6 +24,15 @@ public class Lanchonete {
     @ColumnInfo(name = "horaAtend")
     private @NonNull String horaAtend;
 
+    public Lanchonete(String nome, String localidade, String responsavel, String horaAtend) {
+        this.nome = nome;
+        this.localidade = localidade;
+        this.responsavel = responsavel;
+        this.horaAtend = horaAtend;
+    }
+
+    public String getLanchonete(){return this.nome;}
+
 
     public int getId() {
         return id;

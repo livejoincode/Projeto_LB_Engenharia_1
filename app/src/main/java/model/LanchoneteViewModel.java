@@ -22,11 +22,24 @@ public class LanchoneteViewModel extends AndroidViewModel {
         lanchonetesAllsCache = lRepository.getAllLanchonetes();
     }
 
-
-
-    LiveData<List<Lanchonete>> getAllLanchotetes() { return lanchonetesAllsCache; }
+    public LiveData<List<Lanchonete>> getAllLanchotetes() { return lanchonetesAllsCache; }
 
     //Esse método insert encapsula a visão do usuário que acessa o repositório de lanchonete a partir deste método.
     public void insert(Lanchonete lancho) { lRepository.insert(lancho); }
 
+    public LanchonetePersistencia getlRepository() {
+        return lRepository;
+    }
+
+    public void setLanchonetesAllsCache(LiveData<List<Lanchonete>> lanchonetesAllsCache) {
+        this.lanchonetesAllsCache = lanchonetesAllsCache;
+    }
+
+    public LiveData<List<Lanchonete>> getLanchonetesAllsCache() {
+        return lanchonetesAllsCache;
+    }
+
+    public void setlRepository(LanchonetePersistencia lRepository) {
+        this.lRepository = lRepository;
+    }
 }

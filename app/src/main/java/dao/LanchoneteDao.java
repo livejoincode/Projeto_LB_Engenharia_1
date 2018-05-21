@@ -22,7 +22,7 @@ public interface LanchoneteDao {
     @Update
     int update (Lanchonete lanchonete);
 
-    @Query("SELECT nome FROM Lanchonete ORDER BY nome ASC")
+    @Query("SELECT * FROM Lanchonete ORDER BY nome ASC")
     LiveData<List<Lanchonete>> getAll();
 
 }

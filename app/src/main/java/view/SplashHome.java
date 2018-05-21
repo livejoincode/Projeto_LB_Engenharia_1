@@ -26,7 +26,7 @@ public class SplashHome extends AppCompatActivity {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(getApplicationContext(),LanchoneteController.class));
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                     finish();
                 }
             }, TIME_SPLASH);

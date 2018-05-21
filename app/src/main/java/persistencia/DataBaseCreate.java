@@ -6,6 +6,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.migration.Migration;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import entitys.Lanchonete;
 import dao.LanchoneteDao;
@@ -13,7 +14,7 @@ import dao.LanchoneteDao;
 //A versão do banco de dados é importante caso seja necessário fazer uma migração
 // Seu esquema mudou? Apenas aumente a versão do banco de dados e escreva uma nova implementação de Migration.
 
-@Database(entities = {Lanchonete.class}, version = 1)
+@Database(entities = {Lanchonete.class}, version = 1, exportSchema = false)
 public abstract class DataBaseCreate extends RoomDatabase{
 
     private static DataBaseCreate INSTANCE;
@@ -29,13 +30,22 @@ public abstract class DataBaseCreate extends RoomDatabase{
                     // Usa o construtor de banco de dados do Room para criar um objeto RoomDatabase
                     // no contexto do aplicativo a partir da classe DataBaseCreate e nomeá-la "francisco.db".
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            DataBaseCreate.class, "francisco.db").build();
+                            DataBaseCreate.class, "francisco.db").addCallback(sRoomDatabaseCallback).build();
                     //Execute aqui uma das migrações caso precise.
                 }
             }
         }
         return INSTANCE;
     }
+
+    private static RoomDatabase.Callback sRoomDatabaseCallback =
+            new RoomDatabase.Callback(){
+                @Override
+                public void onOpen (@NonNull SupportSQLiteDatabase db){
+                    super.onOpen(db);
+                    new PopulateDbAsync(INSTANCE).execute();
+                }
+            };
 
     /*Caso necessite mudar de esquema o Room precisa receber os mesmos dados sem perda de dados para um novo schema de migração*/
 
