@@ -5,9 +5,10 @@
     <string name="ajuda">Ajuda</string>
     <string name="relat_rio">Relatório</string>
     <string name="vazia"> </string>
-    <string name="cancelar">Cancelar</string>
+    <string name="cancelar">Voltar</string>
     <string name="cadastrar">Cadastrar</string>
     <string name="nome">Nome</string>
+    <string name="empty_not_saved">Lanchonete não cadastrada, nenhum campo pode estar vazio.</string>
 
     <string name="pendencia_notification_title_template">Pendencia: %1$s</string>
 

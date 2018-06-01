@@ -1,107 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relative_layout"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/AppTheme.NoActionBar"
-    tools:context="view.MainActivity">
+    style="@style/Padrao">
 
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inpResponsavel"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/inpLocal"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/txtResponsavel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Responsável"
-            android:inputType="text" />
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inpNome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/txtNome"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="36dp"
             android:hint="@string/nome"
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/txtLocal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inpLocal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="73dp"
-        android:orientation="horizontal">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/txtLocal"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="11dp"
             android:hint="Local"
-            android:inputType="text" />
+            android:inputType="text"
+            app:layout_constraintBottom_toTopOf="@+id/txtResponsavel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNome" />
 
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inpHora"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_below="@+id/inpResponsavel">
 
         <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
+            android:id="@+id/txtResponsavel"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Hora de Atendimento" />
+            android:layout_marginBottom="13dp"
+            android:hint="Responsável"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLocal" />
 
-    </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/bntCadLancho"
-        style="@style/Widget.AppCompat.Button.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="190dp"
-        android:layout_marginLeft="62dp"
-        android:layout_marginStart="62dp"
-        android:layout_weight="1"
-        android:text="@string/cadastrar" />
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/txthoraAtendimento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="13dp"
+            android:layout_marginTop="52dp"
+            android:hint="Hora de Atendimento"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLocal" />
 
-    <Button
-        android:id="@+id/bntCancelar"
-        style="@style/Widget.AppCompat.Button.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/bntCadLancho"
-        android:layout_marginEnd="75dp"
-        android:layout_marginRight="75dp"
-        android:text="@string/cancelar" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/bntCadLancho"
+            style="@style/Widget.AppCompat.Button.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="186dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorOrange"
+            android:text="@string/cadastrar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txthoraAtendimento" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

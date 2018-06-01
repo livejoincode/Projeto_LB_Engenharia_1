@@ -17,14 +17,16 @@ public class LanchoneteListAdapter extends RecyclerView.Adapter<LanchoneteListAd
 
         private LanchoneteViewHolder(View itemView) {
             super(itemView);
-            LanchoneteItemView = itemView.findViewById(R.id.txv0);
+            LanchoneteItemView = itemView.findViewById(R.id.textView);
         }
     }
 
     private final LayoutInflater lInflater;
-    private List<Lanchonete> lanchonetes; // Cached copy of words
+    private List<Lanchonete> lanchonetes; // cache das lanchonetes
 
-    public LanchoneteListAdapter(Context context) { lInflater = LayoutInflater.from(context); }
+    public LanchoneteListAdapter(Context context) {
+        lInflater = LayoutInflater.from(context);
+    }
 
     @Override
     public LanchoneteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

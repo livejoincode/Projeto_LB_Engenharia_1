@@ -5,4 +5,5 @@
     <color name="colorAccent">#0c0004</color>
     <color name="primary_text_default_material_dark">#0c0c0c</color>
     <color name="colorOrange">#ffffbb33</color>
+    <color name="colorWhite">#ffffffff</color>
 </resources>

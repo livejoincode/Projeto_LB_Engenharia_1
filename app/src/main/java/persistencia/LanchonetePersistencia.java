@@ -49,23 +49,9 @@ public class LanchonetePersistencia {
         @Override
         protected Void doInBackground(final Lanchonete... params) {
             mAsyncTaskDao.insert(params[0]);
+            //aqui onde limpa ew insere assim que inicializa o app
             return null;
         }
     }
 
-    public LanchoneteDao getLanchoneteDao() {
-        return lanchoneteDao;
-    }
-
-    public void setLanchoneteDao(LanchoneteDao lanchoneteDao) {
-        this.lanchoneteDao = lanchoneteDao;
-    }
-
-    public LiveData<List<Lanchonete>> getLanchonetesAlls() {
-        return lanchonetesAlls;
-    }
-
-    public void setLanchonetesAlls(LiveData<List<Lanchonete>> lanchonetesAlls) {
-        this.lanchonetesAlls = lanchonetesAlls;
-    }
 }

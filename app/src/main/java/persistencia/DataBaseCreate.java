@@ -6,6 +6,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.arch.persistence.room.migration.Migration;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 import entitys.Lanchonete;
@@ -17,9 +18,9 @@ import dao.LanchoneteDao;
 @Database(entities = {Lanchonete.class}, version = 1, exportSchema = false)
 public abstract class DataBaseCreate extends RoomDatabase{
 
-    private static DataBaseCreate INSTANCE;
-
     public abstract LanchoneteDao lanchoneteDao();
+
+    private static DataBaseCreate INSTANCE;
 
     /*Método pelo padrão singleton para evitar ter várias instâncias do banco de dados aberto ao mesmo tempo.*/
     public static DataBaseCreate getDatabase(final Context context) {
@@ -43,9 +44,32 @@ public abstract class DataBaseCreate extends RoomDatabase{
                 @Override
                 public void onOpen (@NonNull SupportSQLiteDatabase db){
                     super.onOpen(db);
-                    new PopulateDbAsync(INSTANCE).execute();
+                   // new PopulateDbAsync(INSTANCE).execute();
                 }
             };
+
+
+    class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
+
+        private final LanchoneteDao lDao;
+
+        PopulateDbAsync(DataBaseCreate db) {
+            lDao = db.lanchoneteDao();
+        }
+
+        @Override
+        protected Void doInBackground(final Void... params) {
+            lDao.deleteAll();
+            //essa inserção quando iniciar a aplicação já ter dados dentro do banco de dados
+            Lanchonete lanchonete = new Lanchonete("Lanchonete 01", "uepb", "Francisco", "9");
+            lDao.insert(lanchonete);
+            return null;
+        }
+    }
+
+
+
+
 
     /*Caso necessite mudar de esquema o Room precisa receber os mesmos dados sem perda de dados para um novo schema de migração*/
 

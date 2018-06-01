@@ -24,7 +24,7 @@ public class Lanchonete {
     @ColumnInfo(name = "horaAtend")
     private @NonNull String horaAtend;
 
-    public Lanchonete(String nome, String localidade, String responsavel, String horaAtend) {
+    public Lanchonete(@NonNull String nome, @NonNull String localidade, @NonNull String responsavel, @NonNull String horaAtend) {
         this.nome = nome;
         this.localidade = localidade;
         this.responsavel = responsavel;

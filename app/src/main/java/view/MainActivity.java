@@ -3,8 +3,10 @@ package view;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.joincode.uepb.myapplication.R;
@@ -24,48 +27,29 @@ import model.LanchoneteViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+
     /*
     Além disso onCreate(), adicione um observador para o LiveData retornado por getAllWords().
     O onChanged() método é disparado quando os dados observados são alterados e a atividade está em primeiro plano.
      */
     private LanchoneteViewModel lViewModel;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_lanchonete);
 
-        //Conecte-se com os dados, tudo apartir da classe LanchoneteViewModel que se encarrega de
-        // acessar o repositório, que por sua vez acessa o banco de dados SQLite através da biblioteca ROOM
-        lViewModel = ViewModelProviders.of(this).get(LanchoneteViewModel.class);
-
-
-        //forma de exibir os dados na tela mas não vai ser no MainActivity, ver onde melhor se encaixa
-/*
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final LanchoneteListAdapter adapter = new LanchoneteListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-*/
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //não sei se dá certo, parece que deu certo kkk
-                startActivity(new Intent(new Intent(getApplicationContext(),
-                                LanchoneteController.class/*LanchoneteViewModel.class)*/)));
 
-            //isso era uma mensagem que aparecia para mostrar alguma ação ao precionar o botão
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                        */
-            }
-        });
+        //Conecte-se com os dados, tudo apartir da classe LanchoneteViewModel que se encarrega de
+        // acessar o repositório, que por sua vez acessa o banco de dados SQLite através da biblioteca ROOM
+        lViewModel = ViewModelProviders.of(this).get(LanchoneteViewModel.class);
 
-       //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       //setSupportActionBar(toolbar);
-
-/*
         lViewModel.getAllLanchotetes().observe(this, new Observer<List<Lanchonete>>() {
             @Override
             public void onChanged(@Nullable final List<Lanchonete> lanchos) {
@@ -73,7 +57,39 @@ public class MainActivity extends AppCompatActivity {
                 adapter.setWords(lanchos);
             }
         });
+
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), LanchoneteController.class);
+                startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+
+            /*isso era uma mensagem que aparecia para mostrar alguma ação ao precionar o botão
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            */
+            }
+        });
+
+       /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+       setSupportActionBar(toolbar);
         */
+    }
+
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
+            Lanchonete lanchonete = new Lanchonete(
+                    data.getStringExtra(LanchoneteController.EXTRA_REPLY),
+                    data.getStringExtra(LanchoneteController.EXTRA_REPLY),
+                    data.getStringExtra(LanchoneteController.EXTRA_REPLY),
+                    data.getStringExtra(LanchoneteController.EXTRA_REPLY));
+            lViewModel.insert(lanchonete);
+        }
     }
 
 

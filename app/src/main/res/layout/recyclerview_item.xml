@@ -5,10 +5,9 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/txtview"
+        android:id="@+id/textView"
+        style="@style/lanchonete_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"
-        android:visibility="visible" />
+        android:background="@android:color/holo_orange_light" />
 </LinearLayout>
