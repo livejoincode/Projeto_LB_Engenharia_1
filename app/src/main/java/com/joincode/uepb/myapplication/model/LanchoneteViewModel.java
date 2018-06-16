@@ -1,13 +1,13 @@
-package model;
+package com.joincode.uepb.myapplication.model;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
-import android.os.Bundle;
+
 import java.util.List;
-import entitys.Lanchonete;
-import com.joincode.uepb.myapplication.R;
-import persistencia.LanchonetePersistencia;
+import com.joincode.uepb.myapplication.entitys.Lanchonete;
+
+import com.joincode.uepb.myapplication.repositorio.LanchonetePersistencia;
 
 public class LanchoneteViewModel extends AndroidViewModel {
 

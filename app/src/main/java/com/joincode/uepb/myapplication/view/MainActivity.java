@@ -1,29 +1,30 @@
-package view;
+package com.joincode.uepb.myapplication.view;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.os.Build;
+
 import android.os.Bundle;
+
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
+
 import android.support.v7.app.AppCompatActivity;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
+import com.joincode.uepb.myapplication.controller.ProdutoController;
 import com.joincode.uepb.myapplication.R;
 
 import java.util.List;
 
-import controller.LanchoneteController;
-import entitys.Lanchonete;
-import model.LanchoneteViewModel;
+import com.joincode.uepb.myapplication.controller.LanchoneteController;
+import com.joincode.uepb.myapplication.entitys.Lanchonete;
+import com.joincode.uepb.myapplication.model.LanchoneteViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private LanchoneteViewModel lViewModel;
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    //@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
         final LanchoneteListAdapter adapter = new LanchoneteListAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        //captura o click das recycleterViews e muda para a tela de registro
+        adapter.setOnItemClickListener(new LanchoneteListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Intent intent = new Intent(getApplicationContext(), ProdutoController.class);
+                startActivity(intent);
+            }
+        });
 
         //Conecte-se com os dados, tudo apartir da classe LanchoneteViewModel que se encarrega de
         // acessar o repositório, que por sua vez acessa o banco de dados SQLite através da biblioteca ROOM

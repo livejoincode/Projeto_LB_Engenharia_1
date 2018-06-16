@@ -1,4 +1,4 @@
-package dao;
+package com.joincode.uepb.myapplication.dao;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
@@ -6,7 +6,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import entitys.Lanchonete;
+import com.joincode.uepb.myapplication.entitys.Lanchonete;
 
 import java.util.List;
 
@@ -24,5 +24,8 @@ public interface LanchoneteDao {
 
     @Query("SELECT * FROM Lanchonete ORDER BY nome ASC")
     LiveData<List<Lanchonete>> getAll();
+
+
+
 
 }

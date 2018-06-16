@@ -1,8 +1,8 @@
-package persistencia;
+package com.joincode.uepb.myapplication.repositorio;
 
 import android.os.AsyncTask;
-import dao.LanchoneteDao;
-import entitys.Lanchonete;
+import com.joincode.uepb.myapplication.dao.LanchoneteDao;
+import com.joincode.uepb.myapplication.entitys.Lanchonete;
 
 //POde excluir não serve mais
 class PopulateDbAsync extends AsyncTask<Void, Void, Void> {

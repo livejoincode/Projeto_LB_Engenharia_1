@@ -24,4 +24,11 @@
 
     <string name="action_share">Share</string>
     <string name="action_reply">Reply</string>
+    <string name="local">Local</string>
+    <string name="responsavel">Responsável</string>
+    <string name="hora_de_atendimento">Hora de Atendimento</string>
+    <string name="title_activity_teste">teste</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

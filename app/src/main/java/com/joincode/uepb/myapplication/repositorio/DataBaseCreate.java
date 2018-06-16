@@ -1,4 +1,4 @@
-package persistencia;
+package com.joincode.uepb.myapplication.repositorio;
 
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
@@ -9,8 +9,8 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
-import entitys.Lanchonete;
-import dao.LanchoneteDao;
+import com.joincode.uepb.myapplication.entitys.Lanchonete;
+import com.joincode.uepb.myapplication.dao.LanchoneteDao;
 
 //A versão do banco de dados é importante caso seja necessário fazer uma migração
 // Seu esquema mudou? Apenas aumente a versão do banco de dados e escreva uma nova implementação de Migration.

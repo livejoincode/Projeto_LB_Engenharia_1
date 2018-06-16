@@ -1,13 +1,11 @@
-package persistencia;
+package com.joincode.uepb.myapplication.repositorio;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
-import persistencia.DataBaseCreate;
-
-import entitys.Lanchonete;
-import dao.LanchoneteDao;
+import com.joincode.uepb.myapplication.entitys.Lanchonete;
+import com.joincode.uepb.myapplication.dao.LanchoneteDao;
 
 import java.util.List;
 

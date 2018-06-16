@@ -12,35 +12,36 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="view.MainActivity"
+            android:name="com.joincode.uepb.myapplication.view.MainActivity"
             android:label="Tô com Fome"
             android:theme="@style/Padrao">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="view.SplashHome"
+            android:name="com.joincode.uepb.myapplication.view.SplashHome"
             android:label="Tô com Fome"
             android:theme="@style/Padrao">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="controller.LanchoneteController"
-            android:theme="@style/Padrao"
-            android:label="Tô com Fome">
+            android:name="com.joincode.uepb.myapplication.controller.LanchoneteController"
+            android:label="Tô com Fome"
+            android:theme="@style/Padrao">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".controller.ProdutoController" />
     </application>
 
 </manifest>

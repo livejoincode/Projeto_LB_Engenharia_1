@@ -1,4 +1,4 @@
-package controller;
+package com.joincode.uepb.myapplication.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.widget.Toast;
 
 import com.joincode.uepb.myapplication.R;
 
-import entitys.Lanchonete;
-import model.LanchoneteViewModel;
+
+import com.joincode.uepb.myapplication.model.LanchoneteViewModel;
 
 public class LanchoneteController  extends AppCompatActivity{
 

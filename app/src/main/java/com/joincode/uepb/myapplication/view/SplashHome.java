@@ -1,6 +1,5 @@
-package view;
+package com.joincode.uepb.myapplication.view;
 import com.joincode.uepb.myapplication.R;
-import controller.LanchoneteController;
 
 import android.content.Intent;
 import android.os.Bundle;
