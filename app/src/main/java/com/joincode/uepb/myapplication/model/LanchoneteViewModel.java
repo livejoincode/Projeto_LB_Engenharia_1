@@ -7,18 +7,18 @@ import android.arch.lifecycle.LiveData;
 import java.util.List;
 import com.joincode.uepb.myapplication.entitys.Lanchonete;
 
-import com.joincode.uepb.myapplication.repositorio.LanchonetePersistencia;
+import com.joincode.uepb.myapplication.repositorio.LanchoneteRepositorio;
 
 public class LanchoneteViewModel extends AndroidViewModel {
 
     //manter em cache a lista de lanchonetes
     private LiveData<List<Lanchonete>> lanchonetesAllsCache;
-    private LanchonetePersistencia lRepository;
+    private LanchoneteRepositorio lRepository;
 
     //construtor obtem uma referência ao Persistência da Lanchonete e obtenha a lista de lanchonetes do repositório.
     public LanchoneteViewModel (Application application) {
         super(application);
-        lRepository = new LanchonetePersistencia(application);
+        lRepository = new LanchoneteRepositorio(application);
         lanchonetesAllsCache = lRepository.getAllLanchonetes();
     }
 

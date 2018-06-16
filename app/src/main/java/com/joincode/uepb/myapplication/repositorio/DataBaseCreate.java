@@ -9,16 +9,23 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
+import com.joincode.uepb.myapplication.dao.ProdutoDao;
+import com.joincode.uepb.myapplication.dao.RegistroDao;
 import com.joincode.uepb.myapplication.entitys.Lanchonete;
 import com.joincode.uepb.myapplication.dao.LanchoneteDao;
+import com.joincode.uepb.myapplication.entitys.Possui;
+import com.joincode.uepb.myapplication.entitys.Produto;
+import com.joincode.uepb.myapplication.entitys.Registro;
 
 //A versão do banco de dados é importante caso seja necessário fazer uma migração
 // Seu esquema mudou? Apenas aumente a versão do banco de dados e escreva uma nova implementação de Migration.
 
-@Database(entities = {Lanchonete.class}, version = 1, exportSchema = false)
+@Database(entities = {Lanchonete.class, Produto.class, Possui.class, Registro.class}, version = 2, exportSchema = false)
 public abstract class DataBaseCreate extends RoomDatabase{
 
     public abstract LanchoneteDao lanchoneteDao();
+    public abstract ProdutoDao produtoDao();
+    public abstract RegistroDao registroDao();
 
     private static DataBaseCreate INSTANCE;
 
@@ -39,6 +46,7 @@ public abstract class DataBaseCreate extends RoomDatabase{
         return INSTANCE;
     }
 
+    //Toda vez se quiser iniciar o aplicativo apagando todas as lanchonetes descomentar a linha: new PopulateDbAsync(INSTANCE).execute();
     private static RoomDatabase.Callback sRoomDatabaseCallback =
             new RoomDatabase.Callback(){
                 @Override

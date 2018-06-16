@@ -9,25 +9,25 @@ import com.joincode.uepb.myapplication.dao.LanchoneteDao;
 
 import java.util.List;
 
-public class LanchonetePersistencia {
+public class LanchoneteRepositorio {
 
 
     //variavel de acesso aos dados
     private LanchoneteDao lanchoneteDao;
     //lista de todas as lanchonetes do banco de dados
-    private LiveData<List<Lanchonete>> lanchonetesAlls;
+    private LiveData<List<Lanchonete>> lanchonetes;
     protected DataBaseCreate lBanco;
 
-    public LanchonetePersistencia(Application application) {
+    public LanchoneteRepositorio(Application application) {
         //isto não é uma nova instância do banco, pois uma vez criada a instância do Banco na Classe DataBaseCreate, embora tente criar uma nova instância
         // o método getDatabase que utiliza do singleton retornará a instância original já criada primeiramente.
         DataBaseCreate db = DataBaseCreate.getDatabase(application);
         lanchoneteDao = db.lanchoneteDao();
-        lanchonetesAlls = lanchoneteDao.getAll();
+        lanchonetes = lanchoneteDao.getAll();
     }
 
     public LiveData<List<Lanchonete>> getAllLanchonetes() {
-        return lanchonetesAlls;
+        return lanchonetes;
     }
 
     //insira uma lanchonete de forma sincronizada
